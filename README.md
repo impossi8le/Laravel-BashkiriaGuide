@@ -1,4 +1,27 @@
-## Запуск проекта
+## Старт проекта
+
+## Создание ролей
+
+php artisan permission:create-role user  
+php artisan permission:create-role admin
+
+## Запуск серверов
+
+Laravel сервер
+
+php artisan server
+
+NodeJS сервер
+
+nohup npm run dev &   
+
+Либо
+
+npm install -g pm2
+
+Затем запустите ваш сервер с помощью pm2:
+
+pm2 start npm --name "your-app-name" -- start dev
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
