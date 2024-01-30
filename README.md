@@ -1,5 +1,3 @@
-## Старт проекта
-
 ## Создание ролей
 
 php artisan permission:create-role user  
