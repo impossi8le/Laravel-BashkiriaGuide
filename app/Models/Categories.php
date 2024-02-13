@@ -11,7 +11,7 @@ class Categories extends Model
 
     protected $table = 'categories';
 
-    protected $fillable = ['name', 'parent_id', 'img'];
+    protected $fillable = ['id', 'name', 'parent_id', 'img'];
 
     public function parent()
     {
@@ -21,5 +21,10 @@ class Categories extends Model
     public function children()
     {
         return $this->hasMany(Categories::class, 'parent_id');
+    }
+
+    public function places()
+    {
+        return $this->hasMany(Places::class, 'subcategoryId');
     }
 }

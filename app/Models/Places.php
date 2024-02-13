@@ -37,4 +37,5 @@ class Places extends Model
     {
         return $this->belongsTo(Locations::class, 'locationId');
     }
+
 }

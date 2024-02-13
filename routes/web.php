@@ -3,20 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::resource('places', App\Http\Controllers\App\PlacesController::class)->names('app.places');
+Route::get('/search', [App\Http\Controllers\App\PlacesController::class, 'search'])->name('app.search');
+Route::get('/map', [App\Http\Controllers\App\PlacesController::class, 'map'])->name('app.map');
+Route::get('/maps', [App\Http\Controllers\App\PlacesController::class, 'maps'])->name('app.maps');
+
+
+
+
 
 Auth::routes();
 
@@ -25,9 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-// Route::group(['middleware' => ['role:admin']], function () {
-//     Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index']);
-// });
 
 Route::middleware(['role:admin'])->prefix('admin_panel')->group(function () {
     Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('homeAdmin_panel.home');
